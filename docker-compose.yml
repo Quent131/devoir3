@@ -1,0 +1,20 @@
+version: "3"
+services:
+  manager:
+    build: ./manager/
+
+    environment:
+      CSV_FILENAME: "data.csv"
+      POSTGRES_PASSWORD: "dbapw"
+      POSTGRES_USER: "dba"
+      POSTGRES_DB: "myfirstdb"
+
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "dbapw"
+      POSTGRES_USER: "dba"
+      POSTGRES_DB: "myfirstdb"
